@@ -1,0 +1,14 @@
+*._go_
+*.dll
+*.dylib
+*.exe
+*.out
+*.so
+*.test
+.archive/
+.vscode/
+gin-bin
+gzork
+IGNOREME.md
+testdata/*.html
+testdata/*.xml
