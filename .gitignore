@@ -8,7 +8,7 @@
 .archive/
 .vscode/
 gin-bin
-gzork
 IGNOREME.md
 testdata/*.html
 testdata/*.xml
+zgork
