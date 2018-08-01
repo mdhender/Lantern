@@ -9,6 +9,7 @@
 .vscode/
 gin-bin
 IGNOREME.md
+public/
 testdata/*.html
 testdata/*.xml
 zgork
