@@ -7,6 +7,8 @@
 *.test
 .archive/
 .vscode/
+exits.awk
+exits.txt
 gin-bin
 IGNOREME.md
 public/
