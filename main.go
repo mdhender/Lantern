@@ -20,6 +20,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -37,6 +38,8 @@ func main() {
 		os.Exit(1)
 	}
 
+	http.Handle("/command", &CommandController{})
+
 	fs := http.FileServer(http.Dir("public/"))
 	http.Handle("/", fs)
 
@@ -49,4 +52,28 @@ func main() {
 	// serve the content.
 	log.Printf("listening on port %d; press Ctrl+C to terminate...\n", port)
 	log.Fatal(srv.ListenAndServe())
+}
+
+// CommandController is
+type CommandController struct{}
+
+func (ctl *CommandController) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	switch req.Method {
+	case "POST":
+		postCommand(rw, req)
+	default:
+		http.Error(rw, "method not allowed", http.StatusBadRequest)
+	}
+}
+
+func postCommand(rw http.ResponseWriter, req *http.Request) {
+	r := struct {
+		ID int `json:"id"`
+	}{
+		ID: 5,
+	}
+
+	rw.Header().Set("Content-Type", "application/json")
+	rw.WriteHeader(http.StatusOK)
+	json.NewEncoder(rw).Encode(r)
 }
