@@ -1,3 +1,7 @@
+/.archive
+/.vscode
+/node_modules
+/public
 *._go_
 *.dll
 *.dylib
@@ -5,13 +9,10 @@
 *.out
 *.so
 *.test
-.archive/
-.vscode/
 exits.awk
 exits.txt
 gin-bin
 IGNOREME.md
-public/
 testdata/*.html
 testdata/*.xml
 zgork
