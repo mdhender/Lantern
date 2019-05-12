@@ -39,7 +39,7 @@ func main() {
 	}
 
 	http.Handle("/command", &CommandController{})
-	http.Handle("/", http.FileServer(http.Dir("public/")))
+	http.Handle("/", http.FileServer(http.Dir("./public")))
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf("0.0.0.0:%d", port),
